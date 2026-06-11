@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
+  <rect width="64" height="64" fill="#ffffff"/>
+
+  <!-- x and y axes -->
+  <path d="M10 54 V7" fill="none" stroke="#111111" stroke-width="2.2" stroke-linecap="round"/>
+  <path d="M10 54 H58" fill="none" stroke="#111111" stroke-width="2.2" stroke-linecap="round"/>
+
+  <!-- 45-degree benchmark -->
+  <path d="M11 53 L53 11" fill="none" stroke="#111111" stroke-width="1.9" stroke-linecap="round"/>
+
+  <!-- inverse-S probability-weighting curve -->
+  <path
+    d="M11 53
+       C12.5 37, 21 27, 31 29.5
+       C41 32, 49.5 26, 53 11"
+    fill="none"
+    stroke="#d11f2f"
+    stroke-width="2.8"
+    stroke-linecap="round"
+  />
+</svg>

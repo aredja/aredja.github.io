@@ -12,7 +12,7 @@ footer_text: >
   Powered by <a href="https://jekyllrb.com/" target="_blank">Jekyll</a> with the <a href="https://github.com/alshedivat/al-folio">al-folio</a> theme.
 keywords: behavioral economics, experimental economics, organizational economics, knowledge work, workplace interactions # add your own keywords or leave empty
 lang: en # the language of your site (for example: en, fr, cn, ru, etc.)
-icon: probability-weighting.svg # image used as the favicon from /assets/img/
+icon: prospect-theory-favicon.svg # image used as the favicon from /assets/img/
 
 url: https://aredja.github.io # the base hostname & protocol for your site
 baseurl: # the subpath of your site, e.g. /blog/. Leave blank for root
