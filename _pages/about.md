@@ -20,6 +20,18 @@ latest_posts:
   limit: 3 # leave blank to include all the blog posts
 ---
 
+{% include site-preferences.liquid %}
+
+<aside class="profile-links" aria-label="Profile links">
+  <span><i class="fa-solid fa-location-dot" aria-hidden="true"></i>Switzerland</span>
+  <a href="https://github.com/aredja" rel="external nofollow noopener" target="_blank">
+    <i class="fa-brands fa-github" aria-hidden="true"></i>GitHub
+  </a>
+  <a href="https://www.linkedin.com/in/amil-redja" rel="external nofollow noopener" target="_blank">
+    <i class="fa-brands fa-linkedin" aria-hidden="true"></i>LinkedIn
+  </a>
+</aside>
+
 I am a PhD Candidate in Behavioral and Experimental Economics at the
 [Bern University of Applied Sciences (BFH)](https://www.bfh.ch/en/about-bfh/people/rwkl5uqdxmqh/)
 and the [University of Bern](https://www.vwi.unibe.ch/index_eng.html).
