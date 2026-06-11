@@ -7,7 +7,7 @@ subtitle: PhD Candidate in Economics at <a href="https://www.bfh.ch/">BFH</a> an
 profile: false
 
 selected_papers: false # includes a list of papers marked as "selected={true}"
-social: true # includes social icons at the bottom of the page
+social: false # includes social icons at the bottom of the page
 
 announcements:
   enabled: false # includes a list of news items
@@ -25,3 +25,5 @@ I am a PhD Candidate in Behavioral and Experimental Economics at the
 and the [University of Bern](https://www.vwi.unibe.ch/index_eng.html).
 
 My research focuses on knowledge sharing within organizations and the role of the physical workplace in shaping collaboration. In a world where many tasks can be performed remotely, I am particularly interested in why people still go to the office, how common spaces facilitate informal interactions, and how these interactions influence knowledge transfer and innovation.
+
+My doctoral research is part of the Swiss National Science Foundation project [Managing Knowledge Work in Organizations](https://data.snf.ch/grants/grant/222695).
