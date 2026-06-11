@@ -22,20 +22,6 @@ latest_posts:
 
 I am a PhD Candidate in Behavioral and Experimental Economics at the
 [Bern University of Applied Sciences (BFH)](https://www.bfh.ch/en/about-bfh/people/rwkl5uqdxmqh/)
-and the [University of Bern](https://www.unibe.ch/).
+and the [University of Bern](https://www.vwi.unibe.ch/index_eng.html).
 
-My research examines how people perceive their environment, make decisions, learn, and interact with one another. I am particularly interested in behavior within organizations: why people choose to work in particular settings, how informal workplace interactions shape knowledge sharing, and when collaboration contributes to innovation.
-
-## Current research
-
-My doctoral research is part of the Swiss National Science Foundation project **Managing Knowledge Work in Organizations**. Together with Christian Zihlmann and colleagues in the Finance, Accounting & Tax research group, I study the behavioral mechanisms that connect workplace presence, social interaction, knowledge transfer, and innovative work.
-
-## Research interests
-
-- Behavioral and experimental economics
-- Organizational economics and knowledge work
-- Workplace interactions and collaboration
-- Knowledge sharing and innovation
-- Decision-making and social behavior
-
-Further institutional information is available on my [BFH profile](https://www.bfh.ch/en/about-bfh/people/rwkl5uqdxmqh/).
+My research focuses on knowledge sharing within organizations and the role of the physical workplace in shaping collaboration. In a world where many tasks can be performed remotely, I am particularly interested in why people still go to the office, how common spaces facilitate informal interactions, and how these interactions influence knowledge transfer and innovation.
