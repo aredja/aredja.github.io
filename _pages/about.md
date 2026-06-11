@@ -2,7 +2,7 @@
 layout: about
 title: about
 permalink: /
-subtitle: PhD Candidate in Economics at <a href="https://www.bfh.ch/">BFH</a> and the <a href="https://www.unibe.ch/">University of Bern</a>
+subtitle: PhD Candidate in Economics at BFH and the University of Bern
 
 profile: false
 
@@ -23,6 +23,13 @@ latest_posts:
 {% include site-preferences.liquid %}
 
 <aside class="profile-links" aria-label="Profile links">
+  <img
+    class="profile-photo"
+    src="{{ '/assets/img/amil-redja-profile.jpg' | relative_url }}"
+    alt="Portrait of Amil Redja"
+    width="150"
+    height="150"
+  >
   <span><i class="fa-solid fa-location-dot" aria-hidden="true"></i>Switzerland</span>
   <a href="https://github.com/aredja" rel="external nofollow noopener" target="_blank">
     <i class="fa-brands fa-github" aria-hidden="true"></i>GitHub
