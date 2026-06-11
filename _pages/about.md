@@ -2,12 +2,12 @@
 layout: about
 title: about
 permalink: /
-subtitle: Researcher in the social sciences
+subtitle: PhD Candidate in Economics at <a href="https://www.bfh.ch/">BFH</a> and the <a href="https://www.unibe.ch/">University of Bern</a>
 
 profile: false
 
 selected_papers: false # includes a list of papers marked as "selected={true}"
-social: false # includes social icons at the bottom of the page
+social: true # includes social icons at the bottom of the page
 
 announcements:
   enabled: false # includes a list of news items
@@ -20,6 +20,22 @@ latest_posts:
   limit: 3 # leave blank to include all the blog posts
 ---
 
-I am a researcher interested in social science and empirical research.
+I am a PhD Candidate in Behavioral and Experimental Economics at the
+[Bern University of Applied Sciences (BFH)](https://www.bfh.ch/en/about-bfh/people/rwkl5uqdxmqh/)
+and the [University of Bern](https://www.unibe.ch/).
 
-This website is currently under development. Research interests, publications, teaching, and contact information will be added here.
+My research examines how people perceive their environment, make decisions, learn, and interact with one another. I am particularly interested in behavior within organizations: why people choose to work in particular settings, how informal workplace interactions shape knowledge sharing, and when collaboration contributes to innovation.
+
+## Current research
+
+My doctoral research is part of the Swiss National Science Foundation project **Managing Knowledge Work in Organizations**. Together with Christian Zihlmann and colleagues in the Finance, Accounting & Tax research group, I study the behavioral mechanisms that connect workplace presence, social interaction, knowledge transfer, and innovative work.
+
+## Research interests
+
+- Behavioral and experimental economics
+- Organizational economics and knowledge work
+- Workplace interactions and collaboration
+- Knowledge sharing and innovation
+- Decision-making and social behavior
+
+Further institutional information is available on my [BFH profile](https://www.bfh.ch/en/about-bfh/people/rwkl5uqdxmqh/).
