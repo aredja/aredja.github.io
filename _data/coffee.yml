@@ -1,0 +1,18 @@
+- name: Milchbar
+  city: Zurich
+  country: Switzerland
+  address: Kappelergasse 16, 8001 Zurich
+  latitude: 47.3689961
+  longitude: 8.5402339
+  rating: 7.8
+  scores:
+    coffee: 8
+    atmosphere: 9
+    service: 7
+  review: >-
+    The espresso can be rather sour. The cappuccino is usually very good,
+    unless it spends ten minutes waiting at the bar before being served. The
+    fountain gives the courtyard a particularly pleasant atmosphere, and on
+    weekdays it is a very good place to meet friends.
+  personal_note: "Personal bonus: this is where I met my wife."
+  map_url: https://share.google/9yEYNRBd7mCQpFpCf

@@ -1,0 +1,107 @@
+<div class="coffee-atlas">
+  <div id="coffee-map" class="coffee-map" aria-label="Map of reviewed coffee places"></div>
+
+  <div class="coffee-list" aria-label="Coffee reviews">
+    {% for cafe in site.data.coffee %}
+      <article class="coffee-entry" data-coffee-index="{{ forloop.index0 }}">
+        <div class="coffee-entry-heading">
+          <div>
+            <h2>{{ cafe.name }}</h2>
+            <p class="coffee-location">
+              <i class="fa-solid fa-location-dot" aria-hidden="true"></i>
+              {{ cafe.city }}, {{ cafe.country }}
+            </p>
+          </div>
+          <div class="coffee-overall" aria-label="Overall rating {{ cafe.rating }} out of 10">
+            <strong>{{ cafe.rating }}</strong>
+            <span>/ 10</span>
+          </div>
+        </div>
+
+        <dl class="coffee-scores">
+          <div><dt>Coffee</dt><dd>{{ cafe.scores.coffee }}</dd></div>
+          <div><dt>Atmosphere</dt><dd>{{ cafe.scores.atmosphere }}</dd></div>
+          <div><dt>Service</dt><dd>{{ cafe.scores.service }}</dd></div>
+        </dl>
+
+        <p>{{ cafe.review }}</p>
+        <p class="coffee-personal">{{ cafe.personal_note }}</p>
+
+        <div class="coffee-actions">
+          <button type="button" class="coffee-show-map" data-coffee-index="{{ forloop.index0 }}">
+            <i class="fa-solid fa-map-location-dot" aria-hidden="true"></i>
+            Show on map
+          </button>
+          <a href="{{ cafe.map_url }}" rel="external nofollow noopener" target="_blank">
+            Open place details
+            <i class="fa-solid fa-arrow-up-right-from-square" aria-hidden="true"></i>
+          </a>
+        </div>
+      </article>
+    {% endfor %}
+  </div>
+</div>
+
+<script>
+  window.addEventListener("load", function () {
+    const mapElement = document.getElementById("coffee-map");
+    if (!mapElement || typeof L === "undefined") return;
+
+    const cafes = {{ site.data.coffee | jsonify }};
+    const map = L.map(mapElement, { scrollWheelZoom: false });
+
+    L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
+      maxZoom: 19,
+      attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+    }).addTo(map);
+
+    const markers = cafes.map(function (cafe) {
+      const marker = L.circleMarker([cafe.latitude, cafe.longitude], {
+        radius: 8,
+        color: "#111111",
+        weight: 2,
+        fillColor: "#d04a4a",
+        fillOpacity: 1
+      }).addTo(map);
+
+      const popup = document.createElement("div");
+      popup.className = "coffee-popup";
+
+      const title = document.createElement("strong");
+      title.textContent = cafe.name;
+      popup.appendChild(title);
+
+      const location = document.createElement("span");
+      location.textContent = cafe.city + ", " + cafe.country;
+      popup.appendChild(location);
+
+      const rating = document.createElement("span");
+      rating.textContent = "Overall: " + cafe.rating + " / 10";
+      popup.appendChild(rating);
+
+      marker.bindPopup(popup);
+      return marker;
+    });
+
+    if (markers.length === 1) {
+      map.setView(markers[0].getLatLng(), 14);
+      markers[0].openPopup();
+    } else if (markers.length > 1) {
+      map.fitBounds(L.featureGroup(markers).getBounds().pad(0.2), { maxZoom: 14 });
+    } else {
+      map.setView([20, 0], 2);
+    }
+
+    document.querySelectorAll(".coffee-show-map").forEach(function (button) {
+      button.addEventListener("click", function () {
+        const index = Number(button.dataset.coffeeIndex);
+        const marker = markers[index];
+        if (!marker) return;
+
+        map.setView(marker.getLatLng(), 15, { animate: true });
+        marker.openPopup();
+        mapElement.scrollIntoView({ behavior: "smooth", block: "center" });
+      });
+    });
+  });
+</script>
