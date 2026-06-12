@@ -11,8 +11,8 @@
   <!-- inverse-S probability-weighting curve -->
   <path
     d="M11 53
-       C12.5 37, 21 27, 31 29.5
-       C41 32, 49.5 26, 53 11"
+       C12 33, 20 22, 31 27
+       C43 33, 50 27, 53 11"
     fill="none"
     stroke="#d11f2f"
     stroke-width="2.8"
