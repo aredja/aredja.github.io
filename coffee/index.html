@@ -1,0 +1,331 @@
+<!DOCTYPE html> <html lang="en"> <head> <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"> <meta charset="utf-8"> <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"> <meta http-equiv="X-UA-Compatible" content="IE=edge"> <title> Coffee Atlas | Amil Redja </title> <meta name="author" content="Amil Redja"> <meta name="description" content="Coffee places visited and rated by Amil Redja."> <meta name="keywords" content="behavioral economics, experimental economics, organizational economics, knowledge work, workplace interactions"> <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https:; style-src 'self' 'unsafe-inline' https:; img-src 'self' data: https:; font-src 'self' data: https:; media-src 'self' https:; frame-src 'self' https:; connect-src 'self' https:;"> <style>
+  :root {
+    --max-content-width: 930px;
+  }
+</style> <link rel="stylesheet" href="/assets/css/tailwind.css?v=50c64c15cbb9fd1ce6056fdb8bcb4b62"> <link defer rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@7.2.0/css/all.min.css" integrity="sha256-MVopmdyC2tYTiJ8wlktf0uh0v4NgT+vNdyVFepi7Q0c=" crossorigin="anonymous"> <link defer rel="stylesheet" href="https://cdn.jsdelivr.net/npm/academicons@1.9.5/css/academicons.min.css" integrity="sha256-SzrCOBJbGVFMahewkgjwnApaV2+av1DwMAA+/QGLyZw=" crossorigin="anonymous"> <link defer rel="stylesheet" href="https://cdn.jsdelivr.net/npm/scholar-icons@1.0.3/css/scholar-icons.css" integrity="sha256-VY3hHVj/hNX3fYG6wtbA6TcKJQl7+FthzGSyIB64klY=" crossorigin="anonymous"> <link defer rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Roboto+Slab:100,300,400,500,700|Material+Icons&amp;display=swap"> <link defer rel="stylesheet" href="/assets/css/jekyll-pygments-themes-github.css?v=591dab5a4e56573bf4ef7fd332894c99" media="" id="highlight_theme_light"> <link rel="shortcut icon" href="/assets/img/prospect-theory-favicon.svg?v=38043ed06c1ed6acacc889fabd1ae04f"> <link rel="stylesheet" href="/assets/css/main.css?v=f0b101217084a90093badfe99ff9a7d1"> <link rel="canonical" href="https://aredja.github.io/coffee/"> <script src="/assets/js/theme.js?v=7af685e2ba20b37fef545c97b8064050"></script> <link defer rel="stylesheet" href="/assets/css/jekyll-pygments-themes-native.css?v=5847e5ed4a4568527aa6cfab446049ca" media="none" id="highlight_theme_dark"> <script>
+    initTheme();
+  </script> <link defer rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.9.4/dist/leaflet.min.css" integrity="sha256-q9ba7o845pMPFU+zcAll8rv+gC+fSovKsOoNQ6cynuQ=" crossorigin="anonymous"> </head> <body class="fixed-top-nav "> <header> <nav id="navbar" class="navbar navbar-light navbar-expand-sm fixed-top" role="navigation"> <div class="container"> <a class="navbar-brand title font-weight-lighter" href="/"> <span class="font-weight-bold">Amil</span> Redja </a> <button class="navbar-toggler collapsed navbar-toggler-main" type="button" data-nav-toggle="navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation"> <span class="sr-only">Toggle navigation</span> <span class="icon-bar top-bar"></span> <span class="icon-bar middle-bar"></span> <span class="icon-bar bottom-bar"></span> </button> <div class="collapse navbar-collapse navbar-collapse-main" id="navbarNav"> <ul class="navbar-nav navbar-menu-list flex-nowrap"> <li class="nav-item "> <a class="nav-link" href="/">about </a> </li> <li class="nav-item active"> <a class="nav-link" href="/coffee/">Coffee Atlas <span class="sr-only">(current)</span> </a> </li> <li class="nav-item "> <a class="nav-link" href="/cv/">CV </a> </li> <li class="toggle-container"> <button id="light-toggle" type="button" title="Change theme" aria-label="Change color theme"> <i class="fa-half-sun-moon" id="light-toggle-system"></i> <i class="fa-solid fa-moon" id="light-toggle-dark"></i> <i class="fa-solid fa-sun" id="light-toggle-light"></i> </button> </li> </ul> </div> </div> </nav> <progress id="progress" value="0"> <div class="progress-container"> <span class="progress-bar"></span> </div> </progress> </header> <div class="container mt-5" role="main"> <div class="post"> <header class="post-header"> <h1 class="post-title">Coffee Atlas</h1> <p class="post-description">Coffee places visited and rated by Amil Redja.</p> </header> <article> <style>
+  .toggle-container,
+  #search-toggle {
+    display: none !important;
+  }
+
+  .profile-links {
+    float: right;
+    width: 190px;
+    margin: 0 0 1.5rem 2.5rem;
+    padding-left: 1.25rem;
+    border-left: 1px solid var(--global-divider-color);
+    font-size: 0.95rem;
+    line-height: 1.9;
+  }
+
+  .profile-photo {
+    display: block;
+    width: 150px;
+    height: 150px;
+    margin: 0 0 1rem;
+    object-fit: cover;
+    border-radius: 6px;
+    border: 1px solid var(--global-divider-color);
+  }
+
+  .profile-links a,
+  .profile-links span {
+    display: block;
+    color: var(--global-text-color);
+    text-decoration: none;
+  }
+
+  .profile-links a:hover {
+    color: var(--global-theme-color);
+  }
+
+  .profile-links i {
+    width: 1.25rem;
+    margin-right: 0.35rem;
+    text-align: center;
+    color: var(--global-theme-color);
+  }
+
+  .cv-actions {
+    margin-bottom: 1rem;
+  }
+
+  .cv-download {
+    color: var(--global-text-color);
+    text-decoration: underline;
+    text-underline-offset: 0.2em;
+  }
+
+  .cv-embed {
+    width: 100%;
+    height: 78vh;
+    min-height: 720px;
+    border: 1px solid var(--global-divider-color);
+    background: #ffffff;
+  }
+
+  .coffee-map {
+    width: 100%;
+    height: min(58vh, 520px);
+    min-height: 360px;
+    margin: 1.5rem 0 2.25rem;
+    border: 1px solid var(--global-divider-color);
+    border-radius: 6px;
+    background: #e5e3df;
+  }
+
+  .coffee-list {
+    border-top: 1px solid var(--global-divider-color);
+  }
+
+  .coffee-entry {
+    padding: 1.75rem 0;
+    border-bottom: 1px solid var(--global-divider-color);
+  }
+
+  .coffee-entry-heading {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 1.5rem;
+    margin-bottom: 1.25rem;
+  }
+
+  .coffee-entry h2 {
+    margin: 0 0 0.2rem;
+    font-size: 1.55rem;
+  }
+
+  .coffee-location {
+    margin: 0;
+    color: var(--global-text-color-light);
+  }
+
+  .coffee-location i {
+    margin-right: 0.3rem;
+    color: var(--global-theme-color);
+  }
+
+  .coffee-overall {
+    display: flex;
+    align-items: baseline;
+    flex: 0 0 auto;
+    color: var(--global-text-color);
+  }
+
+  .coffee-overall strong {
+    font-size: 2rem;
+    line-height: 1;
+    font-weight: 600;
+  }
+
+  .coffee-overall span {
+    margin-left: 0.25rem;
+    color: var(--global-text-color-light);
+    font-size: 0.85rem;
+  }
+
+  .coffee-scores {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    max-width: 430px;
+    margin: 0 0 1.25rem;
+    border-top: 1px solid var(--global-divider-color);
+    border-bottom: 1px solid var(--global-divider-color);
+  }
+
+  .coffee-scores div {
+    display: flex;
+    justify-content: space-between;
+    gap: 0.75rem;
+    padding: 0.55rem 0.8rem;
+    border-right: 1px solid var(--global-divider-color);
+  }
+
+  .coffee-scores div:first-child {
+    padding-left: 0;
+  }
+
+  .coffee-scores div:last-child {
+    border-right: 0;
+  }
+
+  .coffee-scores dt,
+  .coffee-scores dd {
+    margin: 0;
+  }
+
+  .coffee-scores dt {
+    color: var(--global-text-color-light);
+    font-weight: 400;
+  }
+
+  .coffee-scores dd {
+    color: var(--global-text-color);
+    font-weight: 600;
+  }
+
+  .coffee-personal {
+    color: var(--global-text-color);
+    font-style: italic;
+  }
+
+  .coffee-actions {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 1.25rem;
+    margin-top: 1.25rem;
+  }
+
+  .coffee-show-map {
+    padding: 0;
+    border: 0;
+    background: transparent;
+    color: var(--global-theme-color);
+    font: inherit;
+    cursor: pointer;
+  }
+
+  .coffee-actions i {
+    margin: 0 0.25rem;
+    font-size: 0.85em;
+  }
+
+  .coffee-popup {
+    display: grid;
+    gap: 0.15rem;
+    min-width: 140px;
+    color: #202124;
+  }
+
+  .coffee-popup strong {
+    font-size: 1rem;
+  }
+
+  @media (max-width: 575px) {
+    .profile-links {
+      float: none;
+      width: auto;
+      margin: 0 0 1.5rem;
+      padding: 0 0 1rem;
+      border-left: 0;
+      border-bottom: 1px solid var(--global-divider-color);
+    }
+
+    .profile-links a,
+    .profile-links span {
+      display: inline-block;
+      margin-right: 1rem;
+    }
+
+    .profile-photo {
+      width: 120px;
+      height: 120px;
+      margin-bottom: 1rem;
+    }
+
+    .cv-embed {
+      height: 70vh;
+      min-height: 560px;
+    }
+
+    .coffee-map {
+      height: 55vh;
+      min-height: 320px;
+    }
+
+    .coffee-scores {
+      grid-template-columns: 1fr;
+    }
+
+    .coffee-scores div,
+    .coffee-scores div:first-child {
+      padding: 0.45rem 0;
+      border-right: 0;
+      border-bottom: 1px solid var(--global-divider-color);
+    }
+
+    .coffee-scores div:last-child {
+      border-bottom: 0;
+    }
+  }
+</style> <script>
+  localStorage.setItem("theme", "dark");
+  if (typeof setThemeSetting === "function") {
+    setThemeSetting("dark");
+  } else {
+    document.documentElement.setAttribute("data-theme-setting", "dark");
+    document.documentElement.setAttribute("data-theme", "dark");
+  }
+</script> <p>A personal map of memorable coffee places, rated for the coffee itself, the atmosphere, and the service.</p> <div class="coffee-atlas"> <div id="coffee-map" class="coffee-map" aria-label="Map of reviewed coffee places"></div> <div class="coffee-list" aria-label="Coffee reviews"> <article class="coffee-entry" data-coffee-index="0"> <div class="coffee-entry-heading"> <div> <h2>Milchbar</h2> <p class="coffee-location"> <i class="fa-solid fa-location-dot" aria-hidden="true"></i> Zurich, Switzerland </p> </div> <div class="coffee-overall" aria-label="Overall rating 7.8 out of 10"> <strong>7.8</strong> <span>/ 10</span> </div> </div> <dl class="coffee-scores"> <div> <dt>Coffee</dt> <dd>8</dd> </div> <div> <dt>Atmosphere</dt> <dd>9</dd> </div> <div> <dt>Service</dt> <dd>7</dd> </div> </dl> <p>The espresso can be rather sour. The cappuccino is usually very good, unless it spends ten minutes waiting at the bar before being served. The fountain gives the courtyard a particularly pleasant atmosphere, and on weekdays it is a very good place to meet friends.</p> <p class="coffee-personal">Personal bonus: this is where I met my wife.</p> <div class="coffee-actions"> <button type="button" class="coffee-show-map" data-coffee-index="0"> <i class="fa-solid fa-map-location-dot" aria-hidden="true"></i> Show on map </button> <a href="https://share.google/9yEYNRBd7mCQpFpCf" rel="external nofollow noopener" target="_blank"> Open place details <i class="fa-solid fa-arrow-up-right-from-square" aria-hidden="true"></i> </a> </div> </article> </div> </div> <script>
+  window.addEventListener("load", function () {
+    const mapElement = document.getElementById("coffee-map");
+    if (!mapElement || typeof L === "undefined") return;
+
+    const cafes = [{"name":"Milchbar","city":"Zurich","country":"Switzerland","address":"Kappelergasse 16, 8001 Zurich","latitude":47.3689961,"longitude":8.5402339,"rating":7.8,"scores":{"coffee":8,"atmosphere":9,"service":7},"review":"The espresso can be rather sour. The cappuccino is usually very good, unless it spends ten minutes waiting at the bar before being served. The fountain gives the courtyard a particularly pleasant atmosphere, and on weekdays it is a very good place to meet friends.","personal_note":"Personal bonus: this is where I met my wife.","map_url":"https://share.google/9yEYNRBd7mCQpFpCf"}];
+    const map = L.map(mapElement, { scrollWheelZoom: false });
+
+    L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
+      maxZoom: 19,
+      attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+    }).addTo(map);
+
+    const markers = cafes.map(function (cafe) {
+      const marker = L.circleMarker([cafe.latitude, cafe.longitude], {
+        radius: 8,
+        color: "#111111",
+        weight: 2,
+        fillColor: "#d04a4a",
+        fillOpacity: 1
+      }).addTo(map);
+
+      const popup = document.createElement("div");
+      popup.className = "coffee-popup";
+
+      const title = document.createElement("strong");
+      title.textContent = cafe.name;
+      popup.appendChild(title);
+
+      const location = document.createElement("span");
+      location.textContent = cafe.city + ", " + cafe.country;
+      popup.appendChild(location);
+
+      const rating = document.createElement("span");
+      rating.textContent = "Overall: " + cafe.rating + " / 10";
+      popup.appendChild(rating);
+
+      marker.bindPopup(popup);
+      return marker;
+    });
+
+    if (markers.length === 1) {
+      map.setView(markers[0].getLatLng(), 14);
+      markers[0].openPopup();
+    } else if (markers.length > 1) {
+      map.fitBounds(L.featureGroup(markers).getBounds().pad(0.2), { maxZoom: 14 });
+    } else {
+      map.setView([20, 0], 2);
+    }
+
+    document.querySelectorAll(".coffee-show-map").forEach(function (button) {
+      button.addEventListener("click", function () {
+        const index = Number(button.dataset.coffeeIndex);
+        const marker = markers[index];
+        if (!marker) return;
+
+        map.setView(marker.getLatLng(), 15, { animate: true });
+        marker.openPopup();
+        mapElement.scrollIntoView({ behavior: "smooth", block: "center" });
+      });
+    });
+  });
+</script> </article> </div> </div> <footer class="fixed-bottom" role="contentinfo"> <div class="container mt-0"> © Copyright 2026 Amil Redja. Powered by <a href="https://jekyllrb.com/" target="_blank" rel="external nofollow noopener">Jekyll</a> with the <a href="https://github.com/alshedivat/al-folio" rel="external nofollow noopener" target="_blank">al-folio</a> theme. </div> </footer> <script>
+  window.alFolio = {
+    compatBootstrap: false
+  };
+</script> <script src="/assets/js/nav-toggle.js?v=141bd79a73ebc0f0b6ea58e440ae79fc"></script> <script defer src="https://cdn.jsdelivr.net/npm/masonry-layout@4.2.2/dist/masonry.pkgd.min.js" integrity="sha256-Nn1q/fx0H7SNLZMQ5Hw5JLaTRZp0yILA/FRexe19VdI=" crossorigin="anonymous"></script> <script defer src="https://cdn.jsdelivr.net/npm/imagesloaded@5.0.0/imagesloaded.pkgd.min.js" integrity="sha256-htrLFfZJ6v5udOG+3kNLINIKh2gvoKqwEhHYfTTMICc=" crossorigin="anonymous"></script> <script defer src="/assets/js/masonry.js?v=e49affc7bd2646f6acdad1dbe02c2359" type="text/javascript"></script> <script src="https://cdn.jsdelivr.net/npm/leaflet@1.9.4/dist/leaflet.min.js" integrity="sha256-MgH13bFTTNqsnuEoqNPBLDaqxjGH+lCpqrukmXc8Ppg=" crossorigin="anonymous"></script> <script defer src="/assets/al_charts/js/leaflet-setup.js" type="text/javascript"></script> <script defer type="text/javascript" id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-mml-chtml.js" integrity="sha256-MASABpB4tYktI2Oitl4t+78w/lyA+D7b/s9GEP0JOGI=" crossorigin="anonymous"></script> <script src="/assets/al_math/js/mathjax-setup.js"></script> <script defer src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6" crossorigin="anonymous"></script> <script src="/assets/js/tooltips-setup.js?v=fe487e99db6c43751e6e7bdb2d6a0611"></script> <script src="/assets/js/no_defer.js?v=53b1b1a645525975c963ce8bf8bfefcf"></script> <script defer src="/assets/js/common.js?v=87baac90f765f2f3362dcf6aaf312a8a"></script> <script defer src="/assets/js/copy_code.js?v=c8a01c11a92744d44b093fc3bda915df" type="text/javascript"></script> <script defer src="/assets/js/jupyter_new_tab.js?v=896d254890d9b47f0281f63bfccf0dee"></script> <script async src="https://d1bxh8uas1mnw7.cloudfront.net/assets/embed.js"></script> <script async src="https://badge.dimensions.ai/badge.js"></script> <script defer src="https://cdn.jsdelivr.net/npm/medium-zoom@1.1.0/dist/medium-zoom.min.js" integrity="sha256-ZgMyDAIYDYGxbcpJcfUnYwNevG/xi9OHKaR/8GK+jWc=" crossorigin="anonymous"></script> <script defer src="/assets/al_img_tools/js/zoom.js"></script> <script defer src="/assets/js/progress-bar.js?v=499464c5c63ced6cf7ad62509f1e2610" type="text/javascript"></script> <script src="https://cdn.jsdelivr.net/npm/vanilla-back-to-top@7.2.1/dist/vanilla-back-to-top.min.js" integrity="sha256-uMJJ3EoTyfRBoTbR+lrfu1uRQ87RZG8AR3cVNuQVeFg=" crossorigin="anonymous"></script> <script>
+    addBackToTop();
+  </script> </body> </html>
