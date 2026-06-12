@@ -49,6 +49,7 @@
 
     const cafes = {{ site.data.coffee | jsonify }};
     const map = L.map(mapElement, { scrollWheelZoom: false });
+    const initialCenter = [47.382794, 8.504364];
 
     L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
       maxZoom: 19,
@@ -83,14 +84,7 @@
       return marker;
     });
 
-    if (markers.length === 1) {
-      map.setView(markers[0].getLatLng(), 14);
-      markers[0].openPopup();
-    } else if (markers.length > 1) {
-      map.fitBounds(L.featureGroup(markers).getBounds().pad(0.2), { maxZoom: 14 });
-    } else {
-      map.setView([20, 0], 2);
-    }
+    map.setView(initialCenter, 13);
 
     document.querySelectorAll(".coffee-show-map").forEach(function (button) {
       button.addEventListener("click", function () {

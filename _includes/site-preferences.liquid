@@ -192,11 +192,28 @@
     display: grid;
     gap: 0.15rem;
     min-width: 140px;
-    color: #202124;
+    color: #000000;
   }
 
   .coffee-popup strong {
     font-size: 1rem;
+  }
+
+  .coffee-map .leaflet-popup-content,
+  .coffee-map .leaflet-popup-content-wrapper,
+  .coffee-map .leaflet-popup-content-wrapper *,
+  .coffee-map .leaflet-popup-content strong,
+  .coffee-map .leaflet-popup-content span {
+    color: #000000 !important;
+    opacity: 1;
+  }
+
+  .coffee-map .leaflet-popup-content {
+    font-weight: 400;
+  }
+
+  .coffee-map .leaflet-popup-content strong {
+    font-weight: 700;
   }
 
   @media (max-width: 575px) {
