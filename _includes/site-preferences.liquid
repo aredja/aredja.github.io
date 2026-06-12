@@ -4,6 +4,11 @@
     display: none !important;
   }
 
+  .navbar-brand .font-weight-bold,
+  .post-title .font-weight-bold {
+    font-weight: inherit !important;
+  }
+
   .profile-links {
     float: right;
     width: 190px;
@@ -75,8 +80,28 @@
   }
 
   .coffee-entry {
-    padding: 1.75rem 0;
     border-bottom: 1px solid var(--global-divider-color);
+  }
+
+  .coffee-summary {
+    display: block;
+    padding: 1.75rem 0;
+    cursor: pointer;
+    list-style: none;
+  }
+
+  .coffee-summary::-webkit-details-marker {
+    display: none;
+  }
+
+  .coffee-summary:hover h2,
+  .coffee-summary:focus-visible h2 {
+    color: var(--global-theme-color);
+  }
+
+  .coffee-summary:focus-visible {
+    outline: 2px solid var(--global-theme-color);
+    outline-offset: 5px;
   }
 
   .coffee-entry-heading {
@@ -119,6 +144,17 @@
     margin-left: 0.25rem;
     color: var(--global-text-color-light);
     font-size: 0.85rem;
+  }
+
+  .coffee-expand-icon {
+    margin-left: 0.9rem;
+    color: var(--global-text-color-light);
+    font-size: 0.8rem;
+    transition: transform 180ms ease;
+  }
+
+  .coffee-entry[open] .coffee-expand-icon {
+    transform: rotate(180deg);
   }
 
   .coffee-scores {
@@ -164,6 +200,47 @@
   .coffee-personal {
     color: var(--global-text-color);
     font-style: italic;
+  }
+
+  .coffee-details {
+    padding: 0 0 1.75rem;
+  }
+
+  .coffee-gallery {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+    margin: 1.25rem 0 0.5rem;
+  }
+
+  .coffee-thumbnail {
+    width: 150px;
+    height: 105px;
+    padding: 0;
+    overflow: hidden;
+    border: 1px solid var(--global-divider-color);
+    border-radius: 5px;
+    background: transparent;
+    cursor: zoom-in;
+  }
+
+  .coffee-thumbnail img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 180ms ease;
+  }
+
+  .coffee-thumbnail:hover img,
+  .coffee-thumbnail:focus-visible img {
+    transform: scale(1.04);
+  }
+
+  .coffee-image-credit {
+    margin: 0;
+    color: var(--global-text-color-light);
+    font-size: 0.8rem;
   }
 
   .coffee-actions {
@@ -216,6 +293,101 @@
     font-weight: 700;
   }
 
+  .coffee-map .leaflet-popup-content a {
+    color: #000000 !important;
+    text-decoration: underline;
+    text-underline-offset: 0.15em;
+  }
+
+  .coffee-lightbox {
+    width: min(92vw, 1100px);
+    max-width: none;
+    height: min(88vh, 820px);
+    max-height: none;
+    padding: 0;
+    overflow: hidden;
+    border: 1px solid #555555;
+    border-radius: 6px;
+    background: #111111;
+    color: #ffffff;
+  }
+
+  .coffee-lightbox:not([open]),
+  .coffee-lightbox button[hidden] {
+    display: none;
+  }
+
+  .coffee-lightbox::backdrop {
+    background: rgba(0, 0, 0, 0.88);
+  }
+
+  .coffee-lightbox figure {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 3.5rem 5rem 2.25rem;
+  }
+
+  .coffee-lightbox figure img {
+    display: block;
+    max-width: 100%;
+    max-height: calc(100% - 2rem);
+    object-fit: contain;
+  }
+
+  .coffee-lightbox figcaption {
+    margin-top: 0.75rem;
+    color: #ffffff;
+    font-size: 0.9rem;
+    text-align: center;
+  }
+
+  .coffee-lightbox-close,
+  .coffee-lightbox-previous,
+  .coffee-lightbox-next {
+    position: absolute;
+    z-index: 1;
+    display: grid;
+    width: 42px;
+    height: 42px;
+    padding: 0;
+    place-items: center;
+    border: 0;
+    border-radius: 50%;
+    background: rgba(0, 0, 0, 0.65);
+    color: #ffffff;
+    cursor: pointer;
+  }
+
+  .coffee-lightbox-close {
+    top: 0.75rem;
+    right: 0.75rem;
+  }
+
+  .coffee-lightbox-previous,
+  .coffee-lightbox-next {
+    top: 50%;
+    transform: translateY(-50%);
+  }
+
+  .coffee-lightbox-previous {
+    left: 0.75rem;
+  }
+
+  .coffee-lightbox-next {
+    right: 0.75rem;
+  }
+
+  .coffee-lightbox button:hover,
+  .coffee-lightbox button:focus-visible {
+    background: rgba(0, 0, 0, 0.92);
+    outline: 2px solid #ffffff;
+  }
+
   @media (max-width: 575px) {
     .profile-links {
       float: none;
@@ -261,6 +433,24 @@
 
     .coffee-scores div:last-child {
       border-bottom: 0;
+    }
+
+    .coffee-summary {
+      padding: 1.35rem 0;
+    }
+
+    .coffee-thumbnail {
+      width: 120px;
+      height: 84px;
+    }
+
+    .coffee-lightbox {
+      width: 96vw;
+      height: 82vh;
+    }
+
+    .coffee-lightbox figure {
+      padding: 3.5rem 3rem 2rem;
     }
   }
 </style>

@@ -16,3 +16,8 @@
     weekdays it is a very good place to meet friends.
   personal_note: "Personal bonus: this is where I met my wife."
   map_url: https://share.google/9yEYNRBd7mCQpFpCf
+  images:
+    - src: /assets/img/coffee/milchbar/courtyard.jpg
+      alt: The Milchbar courtyard and fountain in Zurich
+  image_credit: Zürich Tourism
+  image_source: https://www.zuerich.com/en/visit/restaurants/milchbar

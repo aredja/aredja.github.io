@@ -3,44 +3,90 @@
 
   <div class="coffee-list" aria-label="Coffee reviews">
     {% for cafe in site.data.coffee %}
-      <article class="coffee-entry" data-coffee-index="{{ forloop.index0 }}">
-        <div class="coffee-entry-heading">
-          <div>
-            <h2>{{ cafe.name }}</h2>
-            <p class="coffee-location">
-              <i class="fa-solid fa-location-dot" aria-hidden="true"></i>
-              {{ cafe.city }}, {{ cafe.country }}
-            </p>
+      <details class="coffee-entry" data-coffee-index="{{ forloop.index0 }}">
+        <summary class="coffee-summary">
+          <div class="coffee-entry-heading">
+            <div>
+              <h2>{{ cafe.name }}</h2>
+              <p class="coffee-location">
+                <i class="fa-solid fa-location-dot" aria-hidden="true"></i>
+                {{ cafe.city }}, {{ cafe.country }}
+              </p>
+            </div>
+            <div class="coffee-overall" aria-label="Overall rating {{ cafe.rating }} out of 10">
+              <strong>{{ cafe.rating }}</strong>
+              <span>/ 10</span>
+              <i class="fa-solid fa-chevron-down coffee-expand-icon" aria-hidden="true"></i>
+            </div>
           </div>
-          <div class="coffee-overall" aria-label="Overall rating {{ cafe.rating }} out of 10">
-            <strong>{{ cafe.rating }}</strong>
-            <span>/ 10</span>
+
+          <dl class="coffee-scores">
+            <div><dt>Coffee</dt><dd>{{ cafe.scores.coffee }}</dd></div>
+            <div><dt>Atmosphere</dt><dd>{{ cafe.scores.atmosphere }}</dd></div>
+            <div><dt>Service</dt><dd>{{ cafe.scores.service }}</dd></div>
+          </dl>
+        </summary>
+
+        <div class="coffee-details">
+          <p>{{ cafe.review }}</p>
+          <p class="coffee-personal">{{ cafe.personal_note }}</p>
+
+          {% if cafe.images %}
+            {% assign cafe_index = forloop.index0 %}
+            <div class="coffee-gallery" aria-label="Photos of {{ cafe.name }}">
+              {% for image in cafe.images %}
+                <button
+                  type="button"
+                  class="coffee-thumbnail"
+                  data-coffee-index="{{ cafe_index }}"
+                  data-image-index="{{ forloop.index0 }}"
+                  data-image-src="{{ image.src | relative_url }}"
+                  data-image-alt="{{ image.alt }}"
+                  aria-label="Open photo {{ forloop.index }} of {{ cafe.name }}"
+                >
+                  <img src="{{ image.src | relative_url }}" alt="{{ image.alt }}" loading="lazy">
+                </button>
+              {% endfor %}
+            </div>
+            {% if cafe.image_credit %}
+              <p class="coffee-image-credit">
+                Image:
+                <a href="{{ cafe.image_source }}" rel="external nofollow noopener" target="_blank">{{ cafe.image_credit }}</a>
+              </p>
+            {% endif %}
+          {% endif %}
+
+          <div class="coffee-actions">
+            <button type="button" class="coffee-show-map" data-coffee-index="{{ forloop.index0 }}">
+              <i class="fa-solid fa-map-location-dot" aria-hidden="true"></i>
+              Show on map
+            </button>
+            <a href="{{ cafe.map_url }}" rel="external nofollow noopener" target="_blank">
+              Open place details
+              <i class="fa-solid fa-arrow-up-right-from-square" aria-hidden="true"></i>
+            </a>
           </div>
         </div>
-
-        <dl class="coffee-scores">
-          <div><dt>Coffee</dt><dd>{{ cafe.scores.coffee }}</dd></div>
-          <div><dt>Atmosphere</dt><dd>{{ cafe.scores.atmosphere }}</dd></div>
-          <div><dt>Service</dt><dd>{{ cafe.scores.service }}</dd></div>
-        </dl>
-
-        <p>{{ cafe.review }}</p>
-        <p class="coffee-personal">{{ cafe.personal_note }}</p>
-
-        <div class="coffee-actions">
-          <button type="button" class="coffee-show-map" data-coffee-index="{{ forloop.index0 }}">
-            <i class="fa-solid fa-map-location-dot" aria-hidden="true"></i>
-            Show on map
-          </button>
-          <a href="{{ cafe.map_url }}" rel="external nofollow noopener" target="_blank">
-            Open place details
-            <i class="fa-solid fa-arrow-up-right-from-square" aria-hidden="true"></i>
-          </a>
-        </div>
-      </article>
+      </details>
     {% endfor %}
   </div>
 </div>
+
+<dialog id="coffee-lightbox" class="coffee-lightbox" aria-label="Coffee place photo gallery">
+  <button type="button" class="coffee-lightbox-close" aria-label="Close photo gallery">
+    <i class="fa-solid fa-xmark" aria-hidden="true"></i>
+  </button>
+  <button type="button" class="coffee-lightbox-previous" aria-label="Previous photo">
+    <i class="fa-solid fa-chevron-left" aria-hidden="true"></i>
+  </button>
+  <figure>
+    <img src="" alt="">
+    <figcaption></figcaption>
+  </figure>
+  <button type="button" class="coffee-lightbox-next" aria-label="Next photo">
+    <i class="fa-solid fa-chevron-right" aria-hidden="true"></i>
+  </button>
+</dialog>
 
 <script>
   window.addEventListener("load", function () {
@@ -80,11 +126,18 @@
       rating.textContent = "Overall: " + cafe.rating + " / 10";
       popup.appendChild(rating);
 
+      const placeLink = document.createElement("a");
+      placeLink.href = cafe.map_url;
+      placeLink.target = "_blank";
+      placeLink.rel = "external nofollow noopener";
+      placeLink.textContent = "Open in Google Maps";
+      popup.appendChild(placeLink);
+
       marker.bindPopup(popup);
       return marker;
     });
 
-    map.setView(initialCenter, 13);
+    map.setView(initialCenter, 16);
 
     document.querySelectorAll(".coffee-show-map").forEach(function (button) {
       button.addEventListener("click", function () {
@@ -96,6 +149,63 @@
         marker.openPopup();
         mapElement.scrollIntoView({ behavior: "smooth", block: "center" });
       });
+    });
+
+    document.querySelectorAll(".coffee-entry").forEach(function (entry) {
+      entry.addEventListener("toggle", function () {
+        if (!entry.open) return;
+        document.querySelectorAll(".coffee-entry[open]").forEach(function (otherEntry) {
+          if (otherEntry !== entry) otherEntry.open = false;
+        });
+      });
+    });
+
+    const lightbox = document.getElementById("coffee-lightbox");
+    if (!lightbox || typeof lightbox.showModal !== "function") return;
+
+    const lightboxImage = lightbox.querySelector("img");
+    const lightboxCaption = lightbox.querySelector("figcaption");
+    const previousButton = lightbox.querySelector(".coffee-lightbox-previous");
+    const nextButton = lightbox.querySelector(".coffee-lightbox-next");
+    const closeButton = lightbox.querySelector(".coffee-lightbox-close");
+    let activeGallery = [];
+    let activeImageIndex = 0;
+
+    function showGalleryImage(index) {
+      if (activeGallery.length === 0) return;
+      activeImageIndex = (index + activeGallery.length) % activeGallery.length;
+      const thumbnail = activeGallery[activeImageIndex];
+      lightboxImage.src = thumbnail.dataset.imageSrc;
+      lightboxImage.alt = thumbnail.dataset.imageAlt;
+      lightboxCaption.textContent = thumbnail.dataset.imageAlt;
+      const hasMultipleImages = activeGallery.length > 1;
+      previousButton.hidden = !hasMultipleImages;
+      nextButton.hidden = !hasMultipleImages;
+    }
+
+    document.querySelectorAll(".coffee-thumbnail").forEach(function (thumbnail) {
+      thumbnail.addEventListener("click", function () {
+        const coffeeIndex = thumbnail.dataset.coffeeIndex;
+        activeGallery = Array.from(document.querySelectorAll('.coffee-thumbnail[data-coffee-index="' + coffeeIndex + '"]'));
+        showGalleryImage(Number(thumbnail.dataset.imageIndex));
+        lightbox.showModal();
+      });
+    });
+
+    previousButton.addEventListener("click", function () {
+      showGalleryImage(activeImageIndex - 1);
+    });
+
+    nextButton.addEventListener("click", function () {
+      showGalleryImage(activeImageIndex + 1);
+    });
+
+    closeButton.addEventListener("click", function () {
+      lightbox.close();
+    });
+
+    lightbox.addEventListener("click", function (event) {
+      if (event.target === lightbox) lightbox.close();
     });
   });
 </script>
