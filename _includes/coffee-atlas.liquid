@@ -33,6 +33,12 @@
                 <i class="fa-solid fa-location-dot" aria-hidden="true"></i>
                 {{ cafe.city }}, {{ cafe.country }}
               </p>
+              {% if cafe.price %}
+                <p class="coffee-price">
+                  <i class="fa-solid fa-mug-hot" aria-hidden="true"></i>
+                  {{ cafe.drink | default: "Cappuccino" }}: {{ cafe.price }}
+                </p>
+              {% endif %}
             </div>
             <div class="coffee-overall" aria-label="Overall rating {{ cafe.rating }} out of 10">
               <strong>{{ cafe.rating }}</strong>

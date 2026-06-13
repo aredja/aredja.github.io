@@ -5,6 +5,7 @@
   latitude: 47.3689961
   longitude: 8.5402339
   rating: 7.8
+  price: CHF 6.50
   scores:
     coffee: 8
     atmosphere: 9
@@ -28,6 +29,7 @@
   latitude: 47.3895636
   longitude: 8.4946235
   rating: 8
+  price: CHF 5.80
   scores:
     coffee: 6
     atmosphere: 9
@@ -45,11 +47,12 @@
     to have converged towards a steady state. Unfortunately, it still
     oscillates between "so good that it even overshadows the phenomenal
     vermicelles" and "I could have bought something useless at the Brocki next
-    door with this money," depending on which barista prepares it. I admit that
+    door with this money," conditional on which barista prepares it. The price, however,
+    appears to follow a much clearer trend and shows no signs of being bounded above. I admit that
     I am biased: considered as a whole, the café is a must-visit for its
     pastries. But because this atlas primarily judges the cappuccino, the lack
     of consistency weighs heavily on the coffee score. Even so, after four
     years as a loyal customer, it is clearly not a good enough reason to stop
     visiting.
-  personal_note: "The pastries are sufficiently good to make repeated cappuccino disappointment a rational choice."
+  personal_note: "The pastries are so good that they make repeated cappuccino disappointments a rational choice."
   map_url: https://share.google/5mNOCY1PCBx4DhxxV
