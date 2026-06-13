@@ -1,9 +1,30 @@
 <div class="coffee-atlas">
   <div id="coffee-map" class="coffee-map" aria-label="Map of reviewed coffee places"></div>
 
-  <div class="coffee-list" aria-label="Coffee reviews">
+  <div class="coffee-order" aria-label="Order coffee places">
+    <span>Order by</span>
+    <div class="coffee-order-options" role="group" aria-label="Coffee place ordering">
+      <button type="button" class="coffee-order-button active" data-coffee-order="ranking" aria-pressed="true">
+        <i class="fa-solid fa-ranking-star" aria-hidden="true"></i>
+        Ranking
+      </button>
+      <button type="button" class="coffee-order-button" data-coffee-order="countries" aria-pressed="false">
+        <i class="fa-solid fa-earth-europe" aria-hidden="true"></i>
+        Countries
+      </button>
+    </div>
+  </div>
+
+  <div class="coffee-list" data-coffee-view="ranking" aria-label="Coffee reviews ordered by ranking">
     {% for cafe in site.data.coffee %}
-      <details class="coffee-entry" data-coffee-index="{{ forloop.index0 }}">
+      <details
+        class="coffee-entry"
+        data-coffee-index="{{ forloop.index0 }}"
+        data-country="{{ cafe.country | escape }}"
+        data-city="{{ cafe.city | escape }}"
+        data-name="{{ cafe.name | escape }}"
+        data-rating="{{ cafe.rating }}"
+      >
         <summary class="coffee-summary">
           <div class="coffee-entry-heading">
             <div>
@@ -138,6 +159,114 @@
     });
 
     map.setView(initialCenter, 16);
+
+    const coffeeList = document.querySelector(".coffee-list");
+    const coffeeEntries = Array.from(document.querySelectorAll(".coffee-entry"));
+    const orderButtons = Array.from(document.querySelectorAll(".coffee-order-button"));
+
+    function compareText(first, second) {
+      return first.localeCompare(second, undefined, { sensitivity: "base" });
+    }
+
+    function closeCoffeeEntries() {
+      coffeeEntries.forEach(function (entry) {
+        entry.open = false;
+      });
+    }
+
+    function clearCountryGroups() {
+      coffeeEntries.forEach(function (entry) {
+        coffeeList.appendChild(entry);
+      });
+      coffeeList.querySelectorAll(".coffee-country").forEach(function (countryGroup) {
+        countryGroup.remove();
+      });
+    }
+
+    function showRankingView() {
+      clearCountryGroups();
+      coffeeEntries
+        .slice()
+        .sort(function (first, second) {
+          const ratingDifference = Number(second.dataset.rating) - Number(first.dataset.rating);
+          return ratingDifference || compareText(first.dataset.name, second.dataset.name);
+        })
+        .forEach(function (entry) {
+          coffeeList.appendChild(entry);
+        });
+      coffeeList.dataset.coffeeView = "ranking";
+      coffeeList.setAttribute("aria-label", "Coffee reviews ordered by ranking");
+    }
+
+    function showCountryView() {
+      clearCountryGroups();
+      const countries = new Map();
+
+      coffeeEntries.forEach(function (entry) {
+        const country = entry.dataset.country;
+        if (!countries.has(country)) countries.set(country, []);
+        countries.get(country).push(entry);
+      });
+
+      Array.from(countries.keys())
+        .sort(compareText)
+        .forEach(function (country) {
+          const countryEntries = countries.get(country).sort(function (first, second) {
+            return compareText(first.dataset.city, second.dataset.city) || compareText(first.dataset.name, second.dataset.name);
+          });
+
+          const countryGroup = document.createElement("details");
+          countryGroup.className = "coffee-country";
+
+          const countrySummary = document.createElement("summary");
+          countrySummary.className = "coffee-country-summary";
+
+          const countryName = document.createElement("strong");
+          countryName.textContent = country;
+          countrySummary.appendChild(countryName);
+
+          const countryMeta = document.createElement("span");
+          countryMeta.textContent = countryEntries.length + (countryEntries.length === 1 ? " café" : " cafés");
+          countrySummary.appendChild(countryMeta);
+
+          const countryIcon = document.createElement("i");
+          countryIcon.className = "fa-solid fa-chevron-down";
+          countryIcon.setAttribute("aria-hidden", "true");
+          countrySummary.appendChild(countryIcon);
+
+          const countryCafes = document.createElement("div");
+          countryCafes.className = "coffee-country-cafes";
+          countryEntries.forEach(function (entry) {
+            countryCafes.appendChild(entry);
+          });
+
+          countryGroup.appendChild(countrySummary);
+          countryGroup.appendChild(countryCafes);
+          coffeeList.appendChild(countryGroup);
+        });
+
+      coffeeList.dataset.coffeeView = "countries";
+      coffeeList.setAttribute("aria-label", "Coffee reviews grouped by country and ordered by city");
+    }
+
+    orderButtons.forEach(function (button) {
+      button.addEventListener("click", function () {
+        const mode = button.dataset.coffeeOrder;
+        orderButtons.forEach(function (otherButton) {
+          const isActive = otherButton === button;
+          otherButton.classList.toggle("active", isActive);
+          otherButton.setAttribute("aria-pressed", String(isActive));
+        });
+        closeCoffeeEntries();
+        if (mode === "countries") {
+          showCountryView();
+        } else {
+          showRankingView();
+        }
+      });
+    });
+
+    showRankingView();
 
     document.querySelectorAll(".coffee-show-map").forEach(function (button) {
       button.addEventListener("click", function () {
