@@ -4,12 +4,12 @@
   address: Kappelergasse 16, 8001 Zurich
   latitude: 47.3689961
   longitude: 8.5402339
-  rating: 7.8
+  rating: 7.5
   price: CHF 6.50
   scores:
-    coffee: 8
-    atmosphere: 9
-    service: 7
+    coffee: 6.7
+    atmosphere: 9.2
+    service: 7.3
   review: >-
     The espresso can be rather sour. The cappuccino is usually very good,
     unless it spends ten minutes waiting at the bar before being served. The
@@ -31,9 +31,9 @@
   rating: 8
   price: CHF 5.80
   scores:
-    coffee: 6
-    atmosphere: 9
-    service: 9
+    coffee: 7.1
+    atmosphere: 8.2
+    service: 9.1
   review: >-
     Le Petit Marais set out to bring the French art of viennoiserie to Zurich.
     Its name pays homage to Le Marais, the fashionable and historic Parisian
@@ -56,3 +56,41 @@
     visiting.
   personal_note: "The pastries are so good that they make repeated cappuccino disappointments a rational choice."
   map_url: https://share.google/5mNOCY1PCBx4DhxxV
+- name: BASƎ
+  city: Verona
+  country: Italy
+  address: Via Luigi da Porto 5, 37122 Verona
+  latitude: 45.4337
+  longitude: 10.9971
+  rating: 9.2
+  price: €3.50
+  scores:
+    coffee: 8.9
+    atmosphere: 8.4
+    service: 9.4
+  review: >-
+    Verona has no shortage of beauty: the UNESCO-listed historic centre,
+    Piazza delle Erbe, the Roman Ponte Pietra, rebuilt after its destruction
+    during the Second World War, and, of course, the Arena di Verona. Yet a
+    fascinatingly large share of the city's visitors appear to prefer spending
+    their time queuing to stare at a balcony. Speaking of bella Italia and its
+    celebrated lifestyle, anyone expecting another enthusiastic account of the
+    classical Italian café will be disappointed. BASƎ, formerly and at the
+    time of my visit known as Garage Coffee Bros., may be known for many things,
+    but certainly not for over-roasted beans, pre-ground coffee, or sour
+    espresso. Many people will disagree with my assessment of the average
+    Italian coffee experience, although I strongly suspect that their judgement
+    is affected by holiday bias. BASƎ is nevertheless an essential stop in
+    Verona. Coffee preparation is treated with remarkable seriousness and
+    genuine care. The shop near the Arena is small and offers only a few seats,
+    but it is thoughtfully and warmly designed. Rather than simply receiving
+    whichever espresso is used for your cappuccino, you can choose the beans
+    for the shot yourself. The staff explain their cultivation, roasting, and
+    preparation, and you can smell the different coffees before deciding. You
+    may have noticed by now that I thoroughly enjoyed the experience, which was
+    completed by an excellent cappuccino. The coffee is comparatively
+    expensive, but for anyone seeking something closer to fine-art coffee
+    making in Verona, there exists at least one café that checks all the boxes.
+    Perhaps that explains the new name.
+  personal_note: "At the time of my visit, the café was still called Garage Coffee Bros."
+  map_url: https://share.google/tyuIcHPegJluvBQmi
