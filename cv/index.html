@@ -85,6 +85,99 @@
     border-top: 1px solid var(--global-divider-color);
   }
 
+  .coffee-order {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 0.75rem;
+    margin: 0 0 0.8rem;
+    color: var(--global-text-color-light);
+    font-size: 0.9rem;
+  }
+
+  .coffee-order-options {
+    display: inline-flex;
+    overflow: hidden;
+    border: 1px solid var(--global-divider-color);
+    border-radius: 5px;
+  }
+
+  .coffee-order-button {
+    min-height: 36px;
+    padding: 0.4rem 0.75rem;
+    border: 0;
+    border-right: 1px solid var(--global-divider-color);
+    background: transparent;
+    color: var(--global-text-color-light);
+    font: inherit;
+    cursor: pointer;
+  }
+
+  .coffee-order-button:last-child {
+    border-right: 0;
+  }
+
+  .coffee-order-button i {
+    margin-right: 0.35rem;
+  }
+
+  .coffee-order-button:hover,
+  .coffee-order-button:focus-visible {
+    color: var(--global-text-color);
+  }
+
+  .coffee-order-button.active {
+    background: var(--global-theme-color);
+    color: #ffffff;
+  }
+
+  .coffee-country {
+    border-bottom: 1px solid var(--global-divider-color);
+  }
+
+  .coffee-country-summary {
+    display: grid;
+    grid-template-columns: 1fr auto auto;
+    align-items: center;
+    gap: 0.8rem;
+    padding: 1.25rem 0;
+    cursor: pointer;
+    list-style: none;
+  }
+
+  .coffee-country-summary::-webkit-details-marker {
+    display: none;
+  }
+
+  .coffee-country-summary strong {
+    color: var(--global-text-color);
+    font-size: 1.3rem;
+    font-weight: 500;
+  }
+
+  .coffee-country-summary span,
+  .coffee-country-summary i {
+    color: var(--global-text-color-light);
+  }
+
+  .coffee-country-summary i {
+    font-size: 0.8rem;
+    transition: transform 180ms ease;
+  }
+
+  .coffee-country[open] > .coffee-country-summary i {
+    transform: rotate(180deg);
+  }
+
+  .coffee-country-cafes {
+    padding-left: 1.25rem;
+    border-left: 1px solid var(--global-divider-color);
+  }
+
+  .coffee-country-cafes .coffee-entry:last-child {
+    border-bottom: 0;
+  }
+
   .coffee-entry {
     border-bottom: 1px solid var(--global-divider-color);
   }
@@ -424,6 +517,24 @@
     .coffee-map {
       height: 55vh;
       min-height: 320px;
+    }
+
+    .coffee-order {
+      align-items: stretch;
+      flex-direction: column;
+      gap: 0.4rem;
+    }
+
+    .coffee-order-options {
+      display: flex;
+    }
+
+    .coffee-order-button {
+      flex: 1 1 50%;
+    }
+
+    .coffee-country-cafes {
+      padding-left: 0.75rem;
     }
 
     .coffee-scores {

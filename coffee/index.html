@@ -85,6 +85,99 @@
     border-top: 1px solid var(--global-divider-color);
   }
 
+  .coffee-order {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 0.75rem;
+    margin: 0 0 0.8rem;
+    color: var(--global-text-color-light);
+    font-size: 0.9rem;
+  }
+
+  .coffee-order-options {
+    display: inline-flex;
+    overflow: hidden;
+    border: 1px solid var(--global-divider-color);
+    border-radius: 5px;
+  }
+
+  .coffee-order-button {
+    min-height: 36px;
+    padding: 0.4rem 0.75rem;
+    border: 0;
+    border-right: 1px solid var(--global-divider-color);
+    background: transparent;
+    color: var(--global-text-color-light);
+    font: inherit;
+    cursor: pointer;
+  }
+
+  .coffee-order-button:last-child {
+    border-right: 0;
+  }
+
+  .coffee-order-button i {
+    margin-right: 0.35rem;
+  }
+
+  .coffee-order-button:hover,
+  .coffee-order-button:focus-visible {
+    color: var(--global-text-color);
+  }
+
+  .coffee-order-button.active {
+    background: var(--global-theme-color);
+    color: #ffffff;
+  }
+
+  .coffee-country {
+    border-bottom: 1px solid var(--global-divider-color);
+  }
+
+  .coffee-country-summary {
+    display: grid;
+    grid-template-columns: 1fr auto auto;
+    align-items: center;
+    gap: 0.8rem;
+    padding: 1.25rem 0;
+    cursor: pointer;
+    list-style: none;
+  }
+
+  .coffee-country-summary::-webkit-details-marker {
+    display: none;
+  }
+
+  .coffee-country-summary strong {
+    color: var(--global-text-color);
+    font-size: 1.3rem;
+    font-weight: 500;
+  }
+
+  .coffee-country-summary span,
+  .coffee-country-summary i {
+    color: var(--global-text-color-light);
+  }
+
+  .coffee-country-summary i {
+    font-size: 0.8rem;
+    transition: transform 180ms ease;
+  }
+
+  .coffee-country[open] > .coffee-country-summary i {
+    transform: rotate(180deg);
+  }
+
+  .coffee-country-cafes {
+    padding-left: 1.25rem;
+    border-left: 1px solid var(--global-divider-color);
+  }
+
+  .coffee-country-cafes .coffee-entry:last-child {
+    border-bottom: 0;
+  }
+
   .coffee-entry {
     border-bottom: 1px solid var(--global-divider-color);
   }
@@ -426,6 +519,24 @@
       min-height: 320px;
     }
 
+    .coffee-order {
+      align-items: stretch;
+      flex-direction: column;
+      gap: 0.4rem;
+    }
+
+    .coffee-order-options {
+      display: flex;
+    }
+
+    .coffee-order-button {
+      flex: 1 1 50%;
+    }
+
+    .coffee-country-cafes {
+      padding-left: 0.75rem;
+    }
+
     .coffee-scores {
       grid-template-columns: 1fr;
     }
@@ -467,12 +578,12 @@
     document.documentElement.setAttribute("data-theme-setting", "dark");
     document.documentElement.setAttribute("data-theme", "dark");
   }
-</script> <p>Thinking in a café is quite hard, if the only thing you are thinking about is how terrible your coffee tastes. This personal coffee atlas is inspired by <a href="https://cafeatlas.org/" rel="external nofollow noopener" target="_blank">Ariel Rubinstein’s Coffee Atlas</a>. I am no coffee expert, but I do enjoy rambling about what a very good cappuccino or espresso should look and taste like. Unless stated otherwise, I always order a cappucino.</p> <p>All ratings are, of course, entirely subjective. They may depend on the barista, the exact time of the visit, and my personal mood at the time. Alongside coffee, atmosphere, and service, I also rate each café’s suitability for thinking up your next research idea, only to discard it the following morning.</p> <div class="coffee-atlas"> <div id="coffee-map" class="coffee-map" aria-label="Map of reviewed coffee places"></div> <div class="coffee-list" aria-label="Coffee reviews"> <details class="coffee-entry" data-coffee-index="0"> <summary class="coffee-summary"> <div class="coffee-entry-heading"> <div> <h2>Milchbar</h2> <p class="coffee-location"> <i class="fa-solid fa-location-dot" aria-hidden="true"></i> Zurich, Switzerland </p> </div> <div class="coffee-overall" aria-label="Overall rating 7.8 out of 10"> <strong>7.8</strong> <span>/ 10</span> <i class="fa-solid fa-chevron-down coffee-expand-icon" aria-hidden="true"></i> </div> </div> <dl class="coffee-scores"> <div> <dt>Coffee</dt> <dd>8</dd> </div> <div> <dt>Atmosphere</dt> <dd>9</dd> </div> <div> <dt>Service</dt> <dd>7</dd> </div> </dl> </summary> <div class="coffee-details"> <p>The espresso can be rather sour. The cappuccino is usually very good, unless it spends ten minutes waiting at the bar before being served. The fountain gives the courtyard a particularly pleasant atmosphere, and on weekdays it is a very good place to meet friends.</p> <p class="coffee-personal">Personal bonus: this is where I met my wife.</p> <div class="coffee-gallery" aria-label="Photos of Milchbar"> <button type="button" class="coffee-thumbnail" data-coffee-index="0" data-image-index="0" data-image-src="/assets/img/coffee/milchbar/courtyard.jpg" data-image-alt="The Milchbar courtyard and fountain in Zurich" aria-label="Open photo 1 of Milchbar"> <img src="/assets/img/coffee/milchbar/courtyard.jpg" alt="The Milchbar courtyard and fountain in Zurich" loading="lazy"> </button> </div> <p class="coffee-image-credit"> Image: <a href="https://www.zuerich.com/en/visit/restaurants/milchbar" rel="external nofollow noopener" target="_blank">Zürich Tourism</a> </p> <div class="coffee-actions"> <button type="button" class="coffee-show-map" data-coffee-index="0"> <i class="fa-solid fa-map-location-dot" aria-hidden="true"></i> Show on map </button> <a href="https://share.google/9yEYNRBd7mCQpFpCf" rel="external nofollow noopener" target="_blank"> Open place details <i class="fa-solid fa-arrow-up-right-from-square" aria-hidden="true"></i> </a> </div> </div> </details> </div> </div> <dialog id="coffee-lightbox" class="coffee-lightbox" aria-label="Coffee place photo gallery"> <button type="button" class="coffee-lightbox-close" aria-label="Close photo gallery"> <i class="fa-solid fa-xmark" aria-hidden="true"></i> </button> <button type="button" class="coffee-lightbox-previous" aria-label="Previous photo"> <i class="fa-solid fa-chevron-left" aria-hidden="true"></i> </button> <figure> <img src="" alt=""> <figcaption></figcaption> </figure> <button type="button" class="coffee-lightbox-next" aria-label="Next photo"> <i class="fa-solid fa-chevron-right" aria-hidden="true"></i> </button> </dialog> <script>
+</script> <p>Thinking in a café is quite hard, if the only thing you are thinking about is how terrible your coffee tastes. This personal coffee atlas is inspired by <a href="https://cafeatlas.org/" rel="external nofollow noopener" target="_blank">Ariel Rubinstein’s Coffee Atlas</a>. I am no coffee expert, but I do enjoy rambling about what a very good cappuccino or espresso should look and taste like. Unless stated otherwise, I always order a cappucino.</p> <p>All ratings are, of course, entirely subjective. They may depend on the barista, the exact time of the visit, and my personal mood at the time. Alongside coffee, atmosphere, and service, I also rate each café’s suitability for thinking up your next research idea, only to discard it the following morning.</p> <div class="coffee-atlas"> <div id="coffee-map" class="coffee-map" aria-label="Map of reviewed coffee places"></div> <div class="coffee-order" aria-label="Order coffee places"> <span>Order by</span> <div class="coffee-order-options" role="group" aria-label="Coffee place ordering"> <button type="button" class="coffee-order-button active" data-coffee-order="ranking" aria-pressed="true"> <i class="fa-solid fa-ranking-star" aria-hidden="true"></i> Ranking </button> <button type="button" class="coffee-order-button" data-coffee-order="countries" aria-pressed="false"> <i class="fa-solid fa-earth-europe" aria-hidden="true"></i> Countries </button> </div> </div> <div class="coffee-list" data-coffee-view="ranking" aria-label="Coffee reviews ordered by ranking"> <details class="coffee-entry" data-coffee-index="0" data-country="Switzerland" data-city="Zurich" data-name="Milchbar" data-rating="7.8"> <summary class="coffee-summary"> <div class="coffee-entry-heading"> <div> <h2>Milchbar</h2> <p class="coffee-location"> <i class="fa-solid fa-location-dot" aria-hidden="true"></i> Zurich, Switzerland </p> </div> <div class="coffee-overall" aria-label="Overall rating 7.8 out of 10"> <strong>7.8</strong> <span>/ 10</span> <i class="fa-solid fa-chevron-down coffee-expand-icon" aria-hidden="true"></i> </div> </div> <dl class="coffee-scores"> <div> <dt>Coffee</dt> <dd>8</dd> </div> <div> <dt>Atmosphere</dt> <dd>9</dd> </div> <div> <dt>Service</dt> <dd>7</dd> </div> </dl> </summary> <div class="coffee-details"> <p>The espresso can be rather sour. The cappuccino is usually very good, unless it spends ten minutes waiting at the bar before being served. The fountain gives the courtyard a particularly pleasant atmosphere, and on weekdays it is a very good place to meet friends.</p> <p class="coffee-personal">Personal bonus: this is where I met my wife.</p> <div class="coffee-gallery" aria-label="Photos of Milchbar"> <button type="button" class="coffee-thumbnail" data-coffee-index="0" data-image-index="0" data-image-src="/assets/img/coffee/milchbar/courtyard.jpg" data-image-alt="The Milchbar courtyard and fountain in Zurich" aria-label="Open photo 1 of Milchbar"> <img src="/assets/img/coffee/milchbar/courtyard.jpg" alt="The Milchbar courtyard and fountain in Zurich" loading="lazy"> </button> </div> <p class="coffee-image-credit"> Image: <a href="https://www.zuerich.com/en/visit/restaurants/milchbar" rel="external nofollow noopener" target="_blank">Zürich Tourism</a> </p> <div class="coffee-actions"> <button type="button" class="coffee-show-map" data-coffee-index="0"> <i class="fa-solid fa-map-location-dot" aria-hidden="true"></i> Show on map </button> <a href="https://share.google/9yEYNRBd7mCQpFpCf" rel="external nofollow noopener" target="_blank"> Open place details <i class="fa-solid fa-arrow-up-right-from-square" aria-hidden="true"></i> </a> </div> </div> </details> <details class="coffee-entry" data-coffee-index="1" data-country="Switzerland" data-city="Zurich" data-name="Le Petit Marais" data-rating="8"> <summary class="coffee-summary"> <div class="coffee-entry-heading"> <div> <h2>Le Petit Marais</h2> <p class="coffee-location"> <i class="fa-solid fa-location-dot" aria-hidden="true"></i> Zurich, Switzerland </p> </div> <div class="coffee-overall" aria-label="Overall rating 8 out of 10"> <strong>8</strong> <span>/ 10</span> <i class="fa-solid fa-chevron-down coffee-expand-icon" aria-hidden="true"></i> </div> </div> <dl class="coffee-scores"> <div> <dt>Coffee</dt> <dd>6</dd> </div> <div> <dt>Atmosphere</dt> <dd>9</dd> </div> <div> <dt>Service</dt> <dd>9</dd> </div> </dl> </summary> <div class="coffee-details"> <p>Le Petit Marais set out to bring the French art of viennoiserie to Zurich. Its name pays homage to Le Marais, the fashionable and historic Parisian district. This is rather amusing given that the café is located in Altstetten, Zurich's ninth district, which is famous for being almost everything except fashionable and historic, unless working-class heritage and concrete apartment blocks count. But this is neither a lecture on Altstetten nor an inquiry into the proper use of place names. It is about coffee, and Le Petit Marais continues to leave my palate confused. After four years of loyal visits, one might expect the quality of its cappuccino to have converged towards a steady state. Unfortunately, it still oscillates between "so good that it even overshadows the phenomenal vermicelles" and "I could have bought something useless at the Brocki next door with this money," depending on which barista prepares it. I admit that I am biased: considered as a whole, the café is a must-visit for its pastries. But because this atlas primarily judges the cappuccino, the lack of consistency weighs heavily on the coffee score. Even so, after four years as a loyal customer, it is clearly not a good enough reason to stop visiting.</p> <p class="coffee-personal">The pastries are sufficiently good to make repeated cappuccino disappointment a rational choice.</p> <div class="coffee-actions"> <button type="button" class="coffee-show-map" data-coffee-index="1"> <i class="fa-solid fa-map-location-dot" aria-hidden="true"></i> Show on map </button> <a href="https://share.google/5mNOCY1PCBx4DhxxV" rel="external nofollow noopener" target="_blank"> Open place details <i class="fa-solid fa-arrow-up-right-from-square" aria-hidden="true"></i> </a> </div> </div> </details> </div> </div> <dialog id="coffee-lightbox" class="coffee-lightbox" aria-label="Coffee place photo gallery"> <button type="button" class="coffee-lightbox-close" aria-label="Close photo gallery"> <i class="fa-solid fa-xmark" aria-hidden="true"></i> </button> <button type="button" class="coffee-lightbox-previous" aria-label="Previous photo"> <i class="fa-solid fa-chevron-left" aria-hidden="true"></i> </button> <figure> <img src="" alt=""> <figcaption></figcaption> </figure> <button type="button" class="coffee-lightbox-next" aria-label="Next photo"> <i class="fa-solid fa-chevron-right" aria-hidden="true"></i> </button> </dialog> <script>
   window.addEventListener("load", function () {
     const mapElement = document.getElementById("coffee-map");
     if (!mapElement || typeof L === "undefined") return;
 
-    const cafes = [{"name":"Milchbar","city":"Zurich","country":"Switzerland","address":"Kappelergasse 16, 8001 Zurich","latitude":47.3689961,"longitude":8.5402339,"rating":7.8,"scores":{"coffee":8,"atmosphere":9,"service":7},"review":"The espresso can be rather sour. The cappuccino is usually very good, unless it spends ten minutes waiting at the bar before being served. The fountain gives the courtyard a particularly pleasant atmosphere, and on weekdays it is a very good place to meet friends.","personal_note":"Personal bonus: this is where I met my wife.","map_url":"https://share.google/9yEYNRBd7mCQpFpCf","images":[{"src":"/assets/img/coffee/milchbar/courtyard.jpg","alt":"The Milchbar courtyard and fountain in Zurich"}],"image_credit":"Zürich Tourism","image_source":"https://www.zuerich.com/en/visit/restaurants/milchbar"}];
+    const cafes = [{"name":"Milchbar","city":"Zurich","country":"Switzerland","address":"Kappelergasse 16, 8001 Zurich","latitude":47.3689961,"longitude":8.5402339,"rating":7.8,"scores":{"coffee":8,"atmosphere":9,"service":7},"review":"The espresso can be rather sour. The cappuccino is usually very good, unless it spends ten minutes waiting at the bar before being served. The fountain gives the courtyard a particularly pleasant atmosphere, and on weekdays it is a very good place to meet friends.","personal_note":"Personal bonus: this is where I met my wife.","map_url":"https://share.google/9yEYNRBd7mCQpFpCf","images":[{"src":"/assets/img/coffee/milchbar/courtyard.jpg","alt":"The Milchbar courtyard and fountain in Zurich"}],"image_credit":"Zürich Tourism","image_source":"https://www.zuerich.com/en/visit/restaurants/milchbar"},{"name":"Le Petit Marais","city":"Zurich","country":"Switzerland","address":"Hohlstrasse 502, 8048 Zurich","latitude":47.3895636,"longitude":8.4946235,"rating":8,"scores":{"coffee":6,"atmosphere":9,"service":9},"review":"Le Petit Marais set out to bring the French art of viennoiserie to Zurich. Its name pays homage to Le Marais, the fashionable and historic Parisian district. This is rather amusing given that the café is located in Altstetten, Zurich's ninth district, which is famous for being almost everything except fashionable and historic, unless working-class heritage and concrete apartment blocks count. But this is neither a lecture on Altstetten nor an inquiry into the proper use of place names. It is about coffee, and Le Petit Marais continues to leave my palate confused. After four years of loyal visits, one might expect the quality of its cappuccino to have converged towards a steady state. Unfortunately, it still oscillates between \"so good that it even overshadows the phenomenal vermicelles\" and \"I could have bought something useless at the Brocki next door with this money,\" depending on which barista prepares it. I admit that I am biased: considered as a whole, the café is a must-visit for its pastries. But because this atlas primarily judges the cappuccino, the lack of consistency weighs heavily on the coffee score. Even so, after four years as a loyal customer, it is clearly not a good enough reason to stop visiting.","personal_note":"The pastries are sufficiently good to make repeated cappuccino disappointment a rational choice.","map_url":"https://share.google/5mNOCY1PCBx4DhxxV"}];
     const map = L.map(mapElement, { scrollWheelZoom: false });
     const initialCenter = [47.382794, 8.504364];
 
@@ -517,6 +628,114 @@
     });
 
     map.setView(initialCenter, 16);
+
+    const coffeeList = document.querySelector(".coffee-list");
+    const coffeeEntries = Array.from(document.querySelectorAll(".coffee-entry"));
+    const orderButtons = Array.from(document.querySelectorAll(".coffee-order-button"));
+
+    function compareText(first, second) {
+      return first.localeCompare(second, undefined, { sensitivity: "base" });
+    }
+
+    function closeCoffeeEntries() {
+      coffeeEntries.forEach(function (entry) {
+        entry.open = false;
+      });
+    }
+
+    function clearCountryGroups() {
+      coffeeEntries.forEach(function (entry) {
+        coffeeList.appendChild(entry);
+      });
+      coffeeList.querySelectorAll(".coffee-country").forEach(function (countryGroup) {
+        countryGroup.remove();
+      });
+    }
+
+    function showRankingView() {
+      clearCountryGroups();
+      coffeeEntries
+        .slice()
+        .sort(function (first, second) {
+          const ratingDifference = Number(second.dataset.rating) - Number(first.dataset.rating);
+          return ratingDifference || compareText(first.dataset.name, second.dataset.name);
+        })
+        .forEach(function (entry) {
+          coffeeList.appendChild(entry);
+        });
+      coffeeList.dataset.coffeeView = "ranking";
+      coffeeList.setAttribute("aria-label", "Coffee reviews ordered by ranking");
+    }
+
+    function showCountryView() {
+      clearCountryGroups();
+      const countries = new Map();
+
+      coffeeEntries.forEach(function (entry) {
+        const country = entry.dataset.country;
+        if (!countries.has(country)) countries.set(country, []);
+        countries.get(country).push(entry);
+      });
+
+      Array.from(countries.keys())
+        .sort(compareText)
+        .forEach(function (country) {
+          const countryEntries = countries.get(country).sort(function (first, second) {
+            return compareText(first.dataset.city, second.dataset.city) || compareText(first.dataset.name, second.dataset.name);
+          });
+
+          const countryGroup = document.createElement("details");
+          countryGroup.className = "coffee-country";
+
+          const countrySummary = document.createElement("summary");
+          countrySummary.className = "coffee-country-summary";
+
+          const countryName = document.createElement("strong");
+          countryName.textContent = country;
+          countrySummary.appendChild(countryName);
+
+          const countryMeta = document.createElement("span");
+          countryMeta.textContent = countryEntries.length + (countryEntries.length === 1 ? " café" : " cafés");
+          countrySummary.appendChild(countryMeta);
+
+          const countryIcon = document.createElement("i");
+          countryIcon.className = "fa-solid fa-chevron-down";
+          countryIcon.setAttribute("aria-hidden", "true");
+          countrySummary.appendChild(countryIcon);
+
+          const countryCafes = document.createElement("div");
+          countryCafes.className = "coffee-country-cafes";
+          countryEntries.forEach(function (entry) {
+            countryCafes.appendChild(entry);
+          });
+
+          countryGroup.appendChild(countrySummary);
+          countryGroup.appendChild(countryCafes);
+          coffeeList.appendChild(countryGroup);
+        });
+
+      coffeeList.dataset.coffeeView = "countries";
+      coffeeList.setAttribute("aria-label", "Coffee reviews grouped by country and ordered by city");
+    }
+
+    orderButtons.forEach(function (button) {
+      button.addEventListener("click", function () {
+        const mode = button.dataset.coffeeOrder;
+        orderButtons.forEach(function (otherButton) {
+          const isActive = otherButton === button;
+          otherButton.classList.toggle("active", isActive);
+          otherButton.setAttribute("aria-pressed", String(isActive));
+        });
+        closeCoffeeEntries();
+        if (mode === "countries") {
+          showCountryView();
+        } else {
+          showRankingView();
+        }
+      });
+    });
+
+    showRankingView();
 
     document.querySelectorAll(".coffee-show-map").forEach(function (button) {
       button.addEventListener("click", function () {
