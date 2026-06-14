@@ -6,6 +6,7 @@
   longitude: 8.5402339
   rating: 7.5
   price: CHF 6.50
+  last_visit: June 2025
   scores:
     coffee: 6.7
     atmosphere: 9.2
@@ -30,6 +31,7 @@
   longitude: 8.4946235
   rating: 8
   price: CHF 5.80
+  last_visit: June 2026
   scores:
     coffee: 7.1
     atmosphere: 8.2
@@ -64,6 +66,7 @@
   longitude: 10.9971
   rating: 9.2
   price: €3.50
+  last_visit: May 2025
   scores:
     coffee: 8.9
     atmosphere: 8.4
@@ -94,3 +97,6 @@
     Perhaps that explains the new name.
   personal_note: "If you are more into filter coffee, the shop also offers a variety of brewing methods and beans to choose from."
   map_url: https://share.google/tyuIcHPegJluvBQmi
+  images:
+    - src: /assets/img/coffee/base/base-verona.jpg
+      alt: Cappuccino at Garage Coffee Bros in Verona

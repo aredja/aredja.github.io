@@ -39,6 +39,12 @@
                   {{ cafe.drink | default: "Cappuccino" }}: {{ cafe.price }}
                 </p>
               {% endif %}
+              {% if cafe.last_visit %}
+                <p class="coffee-last-visit">
+                  <i class="fa-regular fa-calendar" aria-hidden="true"></i>
+                  Last visit: {{ cafe.last_visit }}
+                </p>
+              {% endif %}
             </div>
             <div class="coffee-overall" aria-label="Overall rating {{ cafe.rating }} out of 10">
               <strong>{{ cafe.rating }}</strong>
