@@ -29,13 +29,13 @@
   address: Hohlstrasse 502, 8048 Zurich
   latitude: 47.3895636
   longitude: 8.4946235
-  rating: 8
+  rating: 8.1
   price: CHF 5.80
   last_visit: June 2026
   scores:
-    coffee: 7.1
+    coffee: 7.7
     atmosphere: 8.2
-    service: 9.1
+    service: 8.4
   review: >-
     Le Petit Marais set out to bring the French art of viennoiserie to Zurich.
     Its name pays homage to Le Marais, the fashionable and historic Parisian
@@ -64,12 +64,12 @@
   address: Via Luigi da Porto 5, 37122 Verona
   latitude: 45.4337
   longitude: 10.9971
-  rating: 9.2
+  rating: 9.3
   price: €3.50
   last_visit: May 2025
   scores:
-    coffee: 8.9
-    atmosphere: 8.4
+    coffee: 9.5
+    atmosphere: 8.2
     service: 9.4
   review: >-
     Verona has no shortage of beauty: the UNESCO-listed historic centre,
@@ -100,3 +100,196 @@
   images:
     - src: /assets/img/coffee/base/base-verona.jpg
       alt: Cappuccino at Garage Coffee Bros in Verona
+- name: Kanso Coffee Lab
+  city: Munich
+  country: Germany
+  address: Theatinerstraße 35, Residenzpassage, 80333 Munich
+  latitude: 48.1406341
+  longitude: 11.5765915
+  rating: 10
+  scores:
+    coffee: 10
+    atmosphere: 10
+    service: 10
+  review: >-
+    Review forthcoming. For now, the only relevant result is that Kanso Coffee
+    Lab is the current benchmark against which every other café on this map is
+    measured.
+  personal_note: "My absolute number one."
+  map_url: https://share.google/4OclJ3ne4nXJGDkfC
+- name: Cafe am Platz
+  city: Zurich
+  country: Switzerland
+  latitude: 47.3911828
+  longitude: 8.538487
+  review: >-
+    Review forthcoming.
+  map_url: https://maps.app.goo.gl/JAbhgp3XPkgTs7Tu5
+- name: Belmondo
+  city: Zurich
+  country: Switzerland
+  latitude: 47.3933715
+  longitude: 8.5284506
+  review: >-
+    Review forthcoming.
+  map_url: https://maps.app.goo.gl/NXMEc91AX7Tg6d5w6
+- name: Lokal Zurich
+  city: Zurich
+  country: Switzerland
+  latitude: 47.3933518
+  longitude: 8.530818
+  review: >-
+    Review forthcoming.
+  map_url: https://maps.app.goo.gl/ZSuEcRcSq3RUSwcX9
+- name: Grande Cafe & Bar
+  city: Zurich
+  country: Switzerland
+  latitude: 47.3754553
+  longitude: 8.5435945
+  review: >-
+    Review forthcoming.
+  map_url: https://maps.app.goo.gl/KDTbZZW5gqrGNFki8
+- name: The Commercial Project Bahnhofstrasse
+  city: Zurich
+  country: Switzerland
+  latitude: 47.3749657
+  longitude: 8.5386773
+  review: >-
+    Review forthcoming.
+  map_url: https://maps.app.goo.gl/4qJPaxLUvMPpRXz69
+- name: "ISULE | Kiosk"
+  city: Zurich
+  country: Switzerland
+  latitude: 47.3754734
+  longitude: 8.5382669
+  review: >-
+    Review forthcoming.
+  map_url: https://maps.app.goo.gl/fusjt7fzjbthvHSe7
+- name: Hiltl Dachterrasse
+  city: Zurich
+  country: Switzerland
+  latitude: 47.3756117
+  longitude: 8.5395694
+  review: >-
+    Review forthcoming.
+  map_url: https://maps.app.goo.gl/Z14JuvLjdDz8zuey8
+- name: MAME
+  city: Zurich
+  country: Switzerland
+  latitude: 47.3849639
+  longitude: 8.5273789
+  review: >-
+    Review forthcoming.
+  map_url: https://maps.app.goo.gl/sNbRUbaahr9PnNPMA
+- name: etre patisserie
+  city: Zurich
+  country: Switzerland
+  latitude: 47.3626404
+  longitude: 8.5489422
+  review: >-
+    Review forthcoming.
+  map_url: https://maps.app.goo.gl/7Eu5WXcTz4xKJuhw6
+- name: Hegifret Kaffeefenster
+  city: Zurich
+  country: Switzerland
+  latitude: 47.3617696
+  longitude: 8.5613829
+  review: >-
+    Review forthcoming.
+  map_url: https://maps.app.goo.gl/AhHNzG4391BNHnBQ9
+- name: DRAFT. Coffee Zurich
+  city: Zurich
+  country: Switzerland
+  latitude: 47.3547293
+  longitude: 8.5581152
+  review: >-
+    Review forthcoming.
+  map_url: https://maps.app.goo.gl/RpUMeR9pteZG8zSPA
+- name: Bros Beans & Beats
+  city: Zurich
+  country: Switzerland
+  latitude: 47.3727997
+  longitude: 8.5252647
+  review: >-
+    Review forthcoming.
+  map_url: https://maps.app.goo.gl/WknvEcmjrhiswMq78
+- name: Tuttee Fruttee Coffee
+  city: Zurich
+  country: Switzerland
+  latitude: 47.3726576
+  longitude: 8.5262939
+  review: >-
+    Review forthcoming.
+  map_url: https://maps.app.goo.gl/YAG8BpJ9hyudWciq7
+- name: Rare Street Coffee
+  city: Zurich
+  country: Switzerland
+  latitude: 47.3718033
+  longitude: 8.5436637
+  review: >-
+    Review forthcoming.
+  map_url: https://maps.app.goo.gl/hEGtsMpheZxnN214A
+- name: miro Passage Sihlquai
+  city: Zurich
+  country: Switzerland
+  latitude: 47.3788574
+  longitude: 8.5363882
+  review: >-
+    Review forthcoming.
+  map_url: https://maps.app.goo.gl/jN5PtUx4LHJa2UEz5
+- name: KAFFEE-FENSTER
+  city: Bern
+  country: Switzerland
+  latitude: 46.9404474
+  longitude: 7.4382359
+  review: >-
+    Review forthcoming.
+  map_url: https://maps.app.goo.gl/v5qn79R8aogD4m5X7
+- name: Friend or Foe Specialty Coffee Market
+  city: Bern
+  country: Switzerland
+  latitude: 46.9478182
+  longitude: 7.4463403
+  review: >-
+    Review forthcoming.
+  map_url: https://maps.app.goo.gl/UKGrKGRjf7maWrmg9
+- name: Roesterei Gurtengasse
+  city: Bern
+  country: Switzerland
+  latitude: 46.946918
+  longitude: 7.4416142
+  review: >-
+    Review forthcoming.
+  map_url: https://maps.app.goo.gl/AJ2PnyT5sAdQW4xC7
+- name: Roesterei Bahnhof Bern
+  city: Bern
+  country: Switzerland
+  latitude: 46.9476632
+  longitude: 7.4371231
+  review: >-
+    Review forthcoming.
+  map_url: https://maps.app.goo.gl/QTQF7uaGPkaYMXRG9
+- name: Aroma Specialty Coffees
+  city: Bologna
+  country: Italy
+  latitude: 44.4942568
+  longitude: 11.3377414
+  review: >-
+    Review forthcoming.
+  map_url: https://maps.app.goo.gl/6r6aD337R6N6k9oWA
+- name: Dalston Coffee Barcelona
+  city: Barcelona
+  country: Spain
+  latitude: 41.3845342
+  longitude: 2.1684743
+  review: >-
+    Review forthcoming.
+  map_url: https://maps.app.goo.gl/wcCNCGpC1uNViJpc6
+- name: Little Fern
+  city: Barcelona
+  country: Spain
+  latitude: 41.4023437
+  longitude: 2.1975263
+  review: >-
+    Review forthcoming.
+  map_url: https://maps.app.goo.gl/qAeoQncvxyUzgDS39

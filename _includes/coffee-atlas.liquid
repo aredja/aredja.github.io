@@ -46,23 +46,33 @@
                 </p>
               {% endif %}
             </div>
-            <div class="coffee-overall" aria-label="Overall rating {{ cafe.rating }} out of 10">
-              <strong>{{ cafe.rating }}</strong>
-              <span>/ 10</span>
+            <div class="coffee-overall{% unless cafe.rating %} coffee-overall-unrated{% endunless %}" aria-label="{% if cafe.rating %}Overall rating {{ cafe.rating }} out of 10{% else %}Rating forthcoming{% endif %}">
+              {% if cafe.rating %}
+                <strong>{{ cafe.rating }}</strong>
+                <span>/ 10</span>
+              {% else %}
+                <strong>Unrated</strong>
+              {% endif %}
               <i class="fa-solid fa-chevron-down coffee-expand-icon" aria-hidden="true"></i>
             </div>
           </div>
 
-          <dl class="coffee-scores">
-            <div><dt>Coffee</dt><dd>{{ cafe.scores.coffee }}</dd></div>
-            <div><dt>Atmosphere</dt><dd>{{ cafe.scores.atmosphere }}</dd></div>
-            <div><dt>Service</dt><dd>{{ cafe.scores.service }}</dd></div>
-          </dl>
+          {% if cafe.scores %}
+            <dl class="coffee-scores">
+              <div><dt>Coffee</dt><dd>{{ cafe.scores.coffee }}</dd></div>
+              <div><dt>Atmosphere</dt><dd>{{ cafe.scores.atmosphere }}</dd></div>
+              <div><dt>Service</dt><dd>{{ cafe.scores.service }}</dd></div>
+            </dl>
+          {% else %}
+            <p class="coffee-ratings-note">Ratings forthcoming.</p>
+          {% endif %}
         </summary>
 
         <div class="coffee-details">
           <p>{{ cafe.review }}</p>
-          <p class="coffee-personal">{{ cafe.personal_note }}</p>
+          {% if cafe.personal_note %}
+            <p class="coffee-personal">{{ cafe.personal_note }}</p>
+          {% endif %}
 
           {% if cafe.images %}
             {% assign cafe_index = forloop.index0 %}
@@ -156,7 +166,7 @@
       popup.appendChild(location);
 
       const rating = document.createElement("span");
-      rating.textContent = "Overall: " + cafe.rating + " / 10";
+      rating.textContent = cafe.rating ? "Overall: " + cafe.rating + " / 10" : "Rating forthcoming";
       popup.appendChild(rating);
 
       const placeLink = document.createElement("a");
@@ -180,6 +190,11 @@
       return first.localeCompare(second, undefined, { sensitivity: "base" });
     }
 
+    function getRating(entry) {
+      const rating = Number(entry.dataset.rating);
+      return Number.isFinite(rating) ? rating : -Infinity;
+    }
+
     function closeCoffeeEntries() {
       coffeeEntries.forEach(function (entry) {
         entry.open = false;
@@ -200,7 +215,7 @@
       coffeeEntries
         .slice()
         .sort(function (first, second) {
-          const ratingDifference = Number(second.dataset.rating) - Number(first.dataset.rating);
+          const ratingDifference = getRating(second) - getRating(first);
           return ratingDifference || compareText(first.dataset.name, second.dataset.name);
         })
         .forEach(function (entry) {
