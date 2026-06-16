@@ -293,3 +293,27 @@
   review: >-
     Review forthcoming.
   map_url: https://maps.app.goo.gl/qAeoQncvxyUzgDS39
+- name: Kafeterija Kalemegdan
+  city: Belgrade
+  country: Serbia
+  latitude: 44.8233333
+  longitude: 20.44825
+  review: >-
+    Review forthcoming.
+  map_url: https://share.google/FoppyiFKpFFyB3JyW
+- name: Prince Coffee House Prizren
+  city: Prizren
+  country: Kosovo
+  latitude: 42.2093253
+  longitude: 20.740023
+  review: >-
+    Review forthcoming.
+  map_url: https://maps.app.goo.gl/syqYbDJo8ADDuXDm8
+- name: LAFF Coffee Sarajevo
+  city: Sarajevo
+  country: Bosnia and Herzegovina
+  latitude: 43.858787
+  longitude: 18.4269002
+  review: >-
+    Review forthcoming.
+  map_url: https://maps.app.goo.gl/U1h3MqpKikFMuj1D6
